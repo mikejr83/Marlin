@@ -38,6 +38,12 @@
 //
 #define DISABLE_DEBUG
 
+// #define SPI_EEPROM
+// #define SPI_CHAN_EEPROM1                        2
+// #define SPI_EEPROM1_CS                          PB12
+// #define MARLIN_EEPROM_SIZE 						0x1000   // 4KB
+// #define E2END 									0xFFF
+
 //
 // Note: MKS Robin board is using SPI2 interface.
 //
@@ -180,7 +186,7 @@
 #define POWER_LOSS_PIN                      PA2   // PW_DET
 #define PS_ON_PIN                           PG11  // PW_OFF
 #define FIL_RUNOUT_PIN                      PA4   // MT_DET1
-#define FIL_RUNOUT2_PIN                      PE6   // MT_DET2
+#define FIL_RUNOUT2_PIN                     PE6   // MT_DET2
 //#define FIL_RUNOUT_PIN                    PG14  // MT_DET3
 
 //
@@ -199,6 +205,7 @@
   #define SS_PIN                            PG6
 #elif SD_CONNECTION_IS(ONBOARD)
   #define SDIO_SUPPORT
+  #define SDIO_CLOCK                        4500000  // 4.5 MHz
   #define SD_DETECT_PIN                     PD12
   #define ONBOARD_SD_CS_PIN                 PC11
 #elif SD_CONNECTION_IS(CUSTOM_CABLE)
@@ -263,6 +270,14 @@
   #endif // !MKS_MINI_12864 && !ENDER2_STOCKDISPLAY
 
 #endif
+
+// #define HAS_SPI_FLASH                          1
+// #if HAS_SPI_FLASH
+//   #define W25QXX_CS_PIN                     PB12
+//   #define W25QXX_MOSI_PIN                   PB15
+//   #define W25QXX_MISO_PIN                   PB14
+//   #define W25QXX_SCK_PIN                    PB13
+// #endif
 
 #ifndef BOARD_ST7920_DELAY_1
   #define BOARD_ST7920_DELAY_1     DELAY_NS(125)
