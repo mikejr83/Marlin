@@ -57,7 +57,7 @@
   uint8_t singlenozzle_fan_speed[EXTRUDERS];
 #endif
 
-#if ENABLED(MAGNETIC_PARKING_EXTRUDER) || defined(EVENT_GCODE_AFTER_TOOLCHANGE) || (ENABLED(PARKING_EXTRUDER) && PARKING_EXTRUDER_SOLENOIDS_DELAY > 0)
+#if ENABLED(MAGNETIC_PARKING_EXTRUDER) || defined(EVENT_GCODE_AFTER_TOOLCHANGE) || defined(EVENT_GCODE_AFTER_TOOLCHANGE_FS_EXTRA_PRIME) || (ENABLED(PARKING_EXTRUDER) && PARKING_EXTRUDER_SOLENOIDS_DELAY > 0)
   #include "../gcode/gcode.h"
 #endif
 
@@ -798,6 +798,10 @@ void tool_change_prime() {
     // Prime (All distances are added and slowed down to ensure secure priming in all circumstances)
     unscaled_e_move(toolchange_settings.swap_length + toolchange_settings.extra_prime, MMM_TO_MMS(toolchange_settings.prime_speed));
 
+    #ifdef EVENT_GCODE_AFTER_TOOLCHANGE_FS_EXTRA_PRIME
+        gcode.process_subcommands_now_P(PSTR(EVENT_GCODE_AFTER_TOOLCHANGE_FS_EXTRA_PRIME));
+    #endif
+
     // Cutting retraction
     #if TOOLCHANGE_FS_WIPE_RETRACT
       unscaled_e_move(-(TOOLCHANGE_FS_WIPE_RETRACT), MMM_TO_MMS(toolchange_settings.retract_speed));
@@ -1083,6 +1087,10 @@ void tool_change(const uint8_t new_tool, bool no_move/*=false*/) {
 
             // Extra Prime
             unscaled_e_move(toolchange_settings.extra_prime, MMM_TO_MMS(toolchange_settings.prime_speed));
+
+            #ifdef EVENT_GCODE_AFTER_TOOLCHANGE_FS_EXTRA_PRIME
+              gcode.process_subcommands_now_P(PSTR(EVENT_GCODE_AFTER_TOOLCHANGE_FS_EXTRA_PRIME));
+            #endif
 
             // Cutting retraction
             #if TOOLCHANGE_FS_WIPE_RETRACT

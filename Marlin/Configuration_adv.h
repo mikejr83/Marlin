@@ -2042,6 +2042,9 @@
     #define TOOLCHANGE_FS_FAN_SPEED          255  // 0-255
     #define TOOLCHANGE_FS_FAN_TIME            10  // (seconds)
 
+    // Execute g-code after prime
+    #define EVENT_GCODE_AFTER_TOOLCHANGE_FS_EXTRA_PRIME "G12"
+
     // Swap uninitialized extruder with TOOLCHANGE_FS_PRIME_SPEED for all lengths (recover + prime)
     // (May break filament if not retracted beforehand.)
     //#define TOOLCHANGE_FS_INIT_BEFORE_SWAP
