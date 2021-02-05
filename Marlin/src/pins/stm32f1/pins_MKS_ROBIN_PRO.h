@@ -213,6 +213,20 @@
 #endif
 
 /**
+ * The code was below for FLASH_EEPROM_EMULATION was taken from pins_MKS_ROBIN.h.
+ * Adam Green found that the four lines within the if block would allow the Artist-D
+ * to write to the flash for EEPROM.
+ */
+#ifdef ARDUINO_ARCH_STM32
+  #define FLASH_EEPROM_EMULATION
+  #define EEPROM_PAGE_SIZE     (0x800U) // 2KB
+  #define EEPROM_START_ADDRESS (0x8000000UL + (STM32_FLASH_SIZE) * 1024UL - (EEPROM_PAGE_SIZE) * 2UL)
+  #define MARLIN_EEPROM_SIZE (EEPROM_PAGE_SIZE)
+#else
+  #define SDCARD_EEPROM_EMULATION
+#endif
+
+/**
  * Note: MKS Robin TFT screens use various TFT controllers.
  * If the screen stays white, disable 'LCD_RESET_PIN'
  * to let the bootloader init the screen.
