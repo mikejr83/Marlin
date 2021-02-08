@@ -1,4 +1,4 @@
-# Marlin 3D Printer Firmware
+# Marlin 3D Printer Firmware 
 
 ![GitHub](https://img.shields.io/github/license/marlinfirmware/marlin.svg)
 ![GitHub contributors](https://img.shields.io/github/contributors/marlinfirmware/marlin.svg)
@@ -10,7 +10,32 @@
 Additional documentation can be found at the [Marlin Home Page](https://marlinfw.org/).
 Please test this firmware and let us know if it misbehaves in any way. Volunteers are standing by!
 
-## Marlin 2.0
+## JGMaker Artist-D Unofficial and Experimental Firmware
+
+This is my custom firmware that is built for the community of JGMaker Artist-D users. The changes in this firmware are made to the latest released version of Marlin. Released means it was tagged as a release in the upstream MarlinFirmware repository. 
+
+The customizations to the firmware are pretty numerous. My goal is to enable as much functionality within Marlin to make the IDEX functionality of the Artist-D shine. This means experimental features in Marlin may be enabled. For example, this firmware supports the `G12` nozzle clean functionality. Also, advanced features and customizations have been made to tweak the functionality and user experience. The official firmware may keep advanced features and functions "hidden" so that the experience for novice users isn't overwhelming. For users looking at this repository it is highly likely they're moving beyond novice use of the printer and are striving for more and enhanced functionality.
+
+All that said, this firmware is likely to have bugs or misconfigurations. Some of my personal machine settings may be in the configuration! Please take care to clear your EEPROM by intializing it and restoring your settings manually after each flash. It is a good habit to note what the `M503` command returns and use that to restore your settings after a flash.
+
+**If the preceding paragraphs didn't emphasize this enough, you flash this firmware at your own risk. Neither I or JGMaker can be held responsible for you flashing an unsupported or unofficial firmware.**
+
+### Enabled Features
+
+* Babystepping
+* Customized awesome bootscreen
+* PID Auto tune
+* Scroll long statuses and filenames
+* Nozzle clean via `G12`
+* Present the bed forward on aborted print
+* Do not return tool to last position after tool change
+* Wipe nozzle with `G12` after tool change
+
+### Known Issues
+
+* EEPROM saving doesn't work
+
+## Customized Marlin 2.0
 
 Marlin 2.0 takes this popular RepRap firmware to the next level by adding support for much faster 32-bit and ARM-based boards while improving support for 8-bit AVR boards. Read about Marlin's decision to use a "Hardware Abstraction Layer" below.
 
