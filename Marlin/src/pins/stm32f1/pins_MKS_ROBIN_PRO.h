@@ -183,8 +183,8 @@
 //#define MAX6675_SS_PIN                    PE5   // TC1 - CS1
 //#define MAX6675_SS_PIN                    PF11  // TC2 - CS2
 
-#define POWER_LOSS_PIN                      PA2   // PW_DET
-#define PS_ON_PIN                           PG11  // PW_OFF
+// #define POWER_LOSS_PIN                      PA2   // PW_DET
+// #define PS_ON_PIN                           PG11  // PW_OFF
 #define FIL_RUNOUT_PIN                      PA4   // MT_DET1
 #define FIL_RUNOUT2_PIN                     PE6   // MT_DET2
 //#define FIL_RUNOUT_PIN                    PG14  // MT_DET3
@@ -205,7 +205,7 @@
   #define SS_PIN                            PG6
 #elif SD_CONNECTION_IS(ONBOARD)
   #define SDIO_SUPPORT
-  #define SDIO_CLOCK                        4500000  // 4.5 MHz
+  // #define SDIO_CLOCK                        4500000  // 4.5 MHz
   #define SD_DETECT_PIN                     PD12
   #define ONBOARD_SD_CS_PIN                 PC11
 #elif SD_CONNECTION_IS(CUSTOM_CABLE)
@@ -217,14 +217,14 @@
  * Adam Green found that the four lines within the if block would allow the Artist-D
  * to write to the flash for EEPROM.
  */
-#ifdef ARDUINO_ARCH_STM32
-  #define FLASH_EEPROM_EMULATION
-  #define EEPROM_PAGE_SIZE     (0x800U) // 2KB
-  #define EEPROM_START_ADDRESS (0x8000000UL + (STM32_FLASH_SIZE) * 1024UL - (EEPROM_PAGE_SIZE) * 2UL)
-  #define MARLIN_EEPROM_SIZE (EEPROM_PAGE_SIZE)
-#else
-  #define SDCARD_EEPROM_EMULATION
-#endif
+// #ifdef ARDUINO_ARCH_STM32
+//   #define FLASH_EEPROM_EMULATION
+//   #define EEPROM_PAGE_SIZE     (0x800U) // 2KB
+//   #define EEPROM_START_ADDRESS (0x8000000UL + (STM32_FLASH_SIZE) * 1024UL - (EEPROM_PAGE_SIZE) * 2UL)
+//   #define MARLIN_EEPROM_SIZE (EEPROM_PAGE_SIZE)
+// #else
+//   #define SDCARD_EEPROM_EMULATION
+// #endif
 
 /**
  * Note: MKS Robin TFT screens use various TFT controllers.
@@ -237,6 +237,7 @@
 
   #define LCD_RESET_PIN                     PF6
   #define LCD_BACKLIGHT_PIN                 PD13
+  #define NO_LCD_REINIT             // Suppress LCD re-initialization
 
   #if NEED_TOUCH_PINS
     #define TOUCH_CS_PIN                    PA7
