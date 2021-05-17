@@ -335,14 +335,14 @@
 
 #define FAN_PIN                             PE5   // Fan0
 #define FAN1_PIN                            PE6   // Fan1
-#define FAN2_PIN                            PC8   // Fan2
+//#define FAN2_PIN                            PC8   // Fan2
 
 #if ENABLED(M5_EXTENDER)
   #define FAN3_PIN                          PI5   // M5 FAN1
   #define FAN4_PIN                          PE9   // M5 FAN2
-  #define FAN5_PIN                          PE11  // M5 FAN3
+  //#define FAN5_PIN                          PE11  // M5 FAN3
   //#define FAN6_PIN                        PC9   // M5 FAN4
-  //#define FAN7_PIN                        PE14  // M5 FAN5
+  #define FAN7_PIN                        PE14  // M5 FAN5
 #endif
 
 #ifndef SDCARD_CONNECTION
