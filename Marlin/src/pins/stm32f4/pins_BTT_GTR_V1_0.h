@@ -118,6 +118,10 @@
   #define Z_MIN_PROBE_PIN                   PH11  // Z Probe must be PH11
 #endif
 
+// Filament runout sensors
+#define FIL_RUNOUT_PIN                    	PI11
+#define FIL_RUNOUT2_PIN                    	PH6  // Normally ps pin
+
 //
 // Steppers
 //
@@ -461,6 +465,18 @@
 
   // Alter timing for graphical display
   #if HAS_MARLINUI_U8GLIB
+    #ifdef REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER
+      #ifndef BOARD_ST7920_DELAY_1
+        #define BOARD_ST7920_DELAY_1 DELAY_NS(900) //nacho
+      #endif
+      #ifndef BOARD_ST7920_DELAY_2
+        #define BOARD_ST7920_DELAY_2 DELAY_NS(900) //nacho
+      #endif
+      #ifndef BOARD_ST7920_DELAY_3
+        #define BOARD_ST7920_DELAY_3 DELAY_NS(900)  //DELAY_NS(125) JGMaker
+      #endif
+    #endif
+
     #ifndef BOARD_ST7920_DELAY_1
       #define BOARD_ST7920_DELAY_1 DELAY_NS(96)
     #endif
@@ -471,6 +487,12 @@
       #define BOARD_ST7920_DELAY_3 DELAY_NS(600)
     #endif
   #endif
+
+
+
+// #define ST7920_DELAY_1 DELAY_NS(500) //nacho
+// #define ST7920_DELAY_2 DELAY_NS(500) //nacho
+// #define ST7920_DELAY_3 DELAY_NS(500) //nacho
 
 #endif // HAS_WIRED_LCD
 

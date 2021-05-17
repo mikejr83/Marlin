@@ -28,7 +28,7 @@
 /**
  * Marlin release version identifier
  */
-//#define SHORT_BUILD_VERSION "2.0.8"
+#define SHORT_BUILD_VERSION "mike-2.0.8"
 
 /**
  * Verbose version identifier which should contain a reference to the location
@@ -46,7 +46,7 @@
 /**
  * Defines a generic printer name to be output to the LCD after booting Marlin.
  */
-//#define MACHINE_NAME "3D Printer"
+#define MACHINE_NAME "Artist-D"
 
 /**
  * The SOURCE_CODE_URL is the location where users will find the Marlin Source
@@ -54,7 +54,7 @@
  * has a distinct Github fork— the Source Code URL should just be the main
  * Marlin repository.
  */
-//#define SOURCE_CODE_URL "github.com/MarlinFirmware/Marlin"
+#define SOURCE_CODE_URL "github.com/mikejr83/artistd"
 
 /**
  * Default generic printer UUID.
